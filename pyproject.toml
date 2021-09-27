@@ -1,7 +1,12 @@
 [tool.poetry]
 name = "hypermodern-python"
 version = "0.1.0"
-description = ""
+description = "The hypermodern Python project"
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/alexistli/hypermodern-python"
+repository = "https://github.com/alexistli/hypermodern-python"
+keywords = ["hypermodern"]
 authors = ["alexistli <alexis.torelli.treanton@gmail.com>"]
 
 [tool.poetry.dependencies]
@@ -10,6 +15,10 @@ click = "^8.0.1"
 requests = "^2.26.0"
 
 [tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+coverage = {extras = ["toml"], version = "^5.5"}
+pytest-cov = "^2.12.1"
+pytest-mock = "^3.6.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
@@ -17,3 +26,13 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 hypermodern-python = "hypermodern_python.console:main"
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["hypermodern_python"]
+
+[tool.coverage.report]
+show_missing = true
