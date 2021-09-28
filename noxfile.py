@@ -1,9 +1,10 @@
 import tempfile
 
+# noinspection PyUnresolvedReferences,PyPackageRequirements
 import nox
 
 locations = "src", "tests", "noxfile.py"
-nox.options.sessions = "lint", "safety", "mypy", "tests"
+nox.options.sessions = "lint", "mypy", "pytype", "tests"
 
 
 def install_with_constraints(session, *args, **kwargs):
@@ -25,6 +26,14 @@ def mypy(session):
     args = session.posargs or ["--install-types", "--non-interactive", *locations]
     install_with_constraints(session, "mypy")
     session.run("mypy", *args)
+
+
+@nox.session(python=["3.9", "3.8"])
+def pytype(session):
+    """Run the static type checker."""
+    args = session.posargs or ["--disable=import-error", *locations]
+    install_with_constraints(session, "pytype")
+    session.run("pytype", *args)
 
 
 @nox.session(python="3.9")
