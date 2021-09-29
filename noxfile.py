@@ -1,13 +1,16 @@
 import tempfile
+from typing import Any
 
-# noinspection PyUnresolvedReferences,PyPackageRequirements
 import nox
+from nox.sessions import Session
 
+
+package = "hypermodern_python"
+nox.options.sessions = "lint", "safety", "mypy", "pytype", "tests"
 locations = "src", "tests", "noxfile.py"
-nox.options.sessions = "lint", "mypy", "pytype", "tests"
 
 
-def install_with_constraints(session, *args, **kwargs):
+def install_with_constraints(session: Session, *args: str, **kwargs: Any) -> None:
     with tempfile.NamedTemporaryFile() as requirements:
         session.run(
             "poetry",
@@ -21,30 +24,15 @@ def install_with_constraints(session, *args, **kwargs):
         session.install(f"--constraint={requirements.name}", *args, **kwargs)
 
 
-@nox.session(python=["3.9", "3.8"])
-def mypy(session):
-    args = session.posargs or ["--install-types", "--non-interactive", *locations]
-    install_with_constraints(session, "mypy")
-    session.run("mypy", *args)
-
-
-@nox.session(python=["3.9", "3.8"])
-def pytype(session):
-    """Run the static type checker."""
-    args = session.posargs or ["--disable=import-error", *locations]
-    install_with_constraints(session, "pytype")
-    session.run("pytype", *args)
-
-
 @nox.session(python="3.9")
-def black(session):
+def black(session: Session) -> None:
     args = session.posargs or locations
     install_with_constraints(session, "black")
     session.run("black", *args)
 
 
-@nox.session(python="3.9")
-def lint(session):
+@nox.session(python=["3.9", "3.8"])
+def lint(session: Session) -> None:
     args = session.posargs or locations
     install_with_constraints(
         session,
@@ -58,7 +46,7 @@ def lint(session):
 
 
 @nox.session(python="3.9")
-def safety(session):
+def safety(session: Session) -> None:
     with tempfile.NamedTemporaryFile() as requirements:
         session.run(
             "poetry",
@@ -73,7 +61,21 @@ def safety(session):
 
 
 @nox.session(python=["3.9", "3.8"])
-def tests(session):
+def mypy(session: Session) -> None:
+    args = session.posargs or ["--install-types", "--non-interactive", *locations]
+    install_with_constraints(session, "mypy")
+    session.run("mypy", *args)
+
+
+@nox.session(python=["3.9", "3.8"])
+def pytype(session: Session) -> None:
+    args = session.posargs or ["--disable=import-error", *locations]
+    install_with_constraints(session, "pytype")
+    session.run("pytype", *args)
+
+
+@nox.session(python=["3.9", "3.8"])
+def tests(session: Session) -> None:
     args = session.posargs or ["--cov", "-m", "not e2e"]
     session.run("poetry", "install", "--no-dev", external=True)
     install_with_constraints(
