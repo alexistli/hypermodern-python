@@ -30,6 +30,7 @@ flake8-import-order = "^0.18.1"
 safety = "^1.10.3"
 mypy = "^0.910"
 pytype = "^2021.9.27"
+typeguard = "^2.12.1"
 
 [tool.poetry.scripts]
 hypermodern-python = "hypermodern_python.console:main"
