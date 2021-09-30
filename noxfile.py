@@ -76,7 +76,7 @@ def pytype(session: Session) -> None:
 
 
 @nox.session(python=["3.9", "3.8"])
-def typeguard(session):
+def typeguard(session: Session) -> None:
     args = session.posargs or ["-m", "not e2e"]
     session.run("poetry", "install", "--no-dev", external=True)
     install_with_constraints(session, "pytest", "pytest-mock", "typeguard")
