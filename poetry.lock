@@ -112,6 +112,14 @@ toml = {version = "*", optional = true, markers = "extra == \"toml\""}
 toml = ["toml"]
 
 [[package]]
+name = "darglint"
+version = "1.8.0"
+description = "A utility for ensuring Google-style docstrings stay up to date with the source code."
+category = "dev"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[[package]]
 name = "desert"
 version = "2020.11.18"
 description = "Deserialize to objects while staying DRY"
@@ -716,7 +724,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8,<3.10"
-content-hash = "48e7e1b89a62f394bd1cfdfaf82815db682b48b27e558b99a91407fc10f381ba"
+content-hash = "23fe272e2f5c71a1816781b188107e013ee2fab03dc7dfca12c3dd41b1456665"
 
 [metadata.files]
 atomicwrites = [
@@ -804,6 +812,10 @@ coverage = [
     {file = "coverage-5.5-pp36-none-any.whl", hash = "sha256:f030f8873312a16414c0d8e1a1ddff2d3235655a2174e3648b4fa66b3f2f1079"},
     {file = "coverage-5.5-pp37-none-any.whl", hash = "sha256:2a3859cb82dcbda1cfd3e6f71c27081d18aa251d20a17d87d26d4cd216fb0af4"},
     {file = "coverage-5.5.tar.gz", hash = "sha256:ebe78fe9a0e874362175b02371bdfbee64d8edc42a044253ddf4ee7d3c15212c"},
+]
+darglint = [
+    {file = "darglint-1.8.0-py3-none-any.whl", hash = "sha256:ac6797bcc918cd8d8f14c168a4a364f54e1aeb4ced59db58e7e4c6dfec2fe15c"},
+    {file = "darglint-1.8.0.tar.gz", hash = "sha256:aa605ef47817a6d14797d32b390466edab621768ea4ca5cc0f3c54f6d8dcaec8"},
 ]
 desert = [
     {file = "desert-2020.11.18-py3-none-any.whl", hash = "sha256:6392702be7952fb9c8bbc775425fa929c1eab5c06552c2890e82a24964eeb084"},

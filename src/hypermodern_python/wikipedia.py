@@ -43,7 +43,6 @@ def random_page(language: str = "en") -> Page:
         ClickException: The HTTP request failed or the HTTP response
             contained an invalid body.
     """
-
     url = API_URL.format(language=language)
 
     try:
