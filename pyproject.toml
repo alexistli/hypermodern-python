@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "hypermodern-python"
+name = "hypermodern-python-alexistli"
 version = "0.1.0"
 description = "The hypermodern Python project"
 license = "MIT"
