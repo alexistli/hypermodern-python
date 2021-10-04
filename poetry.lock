@@ -721,10 +721,28 @@ brotli = ["brotlipy (>=0.6.0)"]
 secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "ipaddress"]
 socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 
+[[package]]
+name = "xdoctest"
+version = "0.15.9"
+description = "A rewrite of the builtin doctest module"
+category = "dev"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = "*"
+
+[package.extras]
+all = ["pygments", "cmake", "codecov", "ninja", "pybind11", "scikit-build", "six", "colorama", "pytest", "pytest", "pytest-cov", "pytest", "pytest", "pytest-cov", "typing", "ipython", "ipykernel", "jupyter-client", "nbconvert", "nbformat", "pytest", "pytest-cov"]
+colors = ["pygments", "colorama"]
+jupyter = ["ipython", "ipykernel", "jupyter-client", "nbconvert", "nbformat"]
+optional = ["pygments", "colorama", "ipython", "ipykernel", "jupyter-client", "nbconvert", "nbformat"]
+tests = ["cmake", "codecov", "ninja", "pybind11", "scikit-build", "pytest", "pytest", "pytest-cov", "pytest", "pytest", "pytest-cov", "typing", "ipython", "ipykernel", "jupyter-client", "nbconvert", "nbformat", "pytest", "pytest-cov"]
+
 [metadata]
 lock-version = "1.1"
 python-versions = ">=3.8,<3.10"
-content-hash = "23fe272e2f5c71a1816781b188107e013ee2fab03dc7dfca12c3dd41b1456665"
+content-hash = "e04189c9a5ceeabd1a561dbc23ec571d86249eca200ab6dd3f80edbbcde97181"
 
 [metadata.files]
 atomicwrites = [
@@ -1153,4 +1171,9 @@ typing-inspect = [
 urllib3 = [
     {file = "urllib3-1.26.7-py2.py3-none-any.whl", hash = "sha256:c4fdf4019605b6e5423637e01bc9fe4daef873709a7973e195ceba0a62bbc844"},
     {file = "urllib3-1.26.7.tar.gz", hash = "sha256:4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece"},
+]
+xdoctest = [
+    {file = "xdoctest-0.15.9-py2.py3-none-any.whl", hash = "sha256:0aa507cd2260e8d88adf1f8ef93d1710b78f2c0c21f007ea95562a8f3be7cd71"},
+    {file = "xdoctest-0.15.9-py3-none-any.whl", hash = "sha256:1c7a713cab41ec50e0ebca1ad5a8e02c2202f1b81f963fa970fec9c87bbcd4f7"},
+    {file = "xdoctest-0.15.9.tar.gz", hash = "sha256:84b00921d9fd6df774b1c5f23a96c65cc35ce78147679b31af95507670547655"},
 ]

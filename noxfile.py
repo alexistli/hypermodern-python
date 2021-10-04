@@ -93,6 +93,11 @@ def tests(session: Session) -> None:
     install_with_constraints(
         session, "coverage[toml]", "pytest", "pytest-cov", "pytest-mock"
     )
+    import sys
+    import os
+
+    print(sys.path)
+    print(os.getcwdb())
     session.run("pytest", *args)
 
 
@@ -103,3 +108,12 @@ def typeguard(session: Session) -> None:
     session.run("poetry", "install", "--no-dev", external=True)
     install_with_constraints(session, "pytest", "pytest-mock", "typeguard")
     session.run("pytest", f"--typeguard-packages={package}", *args)
+
+
+@nox.session(python=["3.9", "3.8"])
+def xdoctest(session: Session) -> None:
+    """Run examples with xdoctest."""
+    args = session.posargs or ["all"]
+    session.run("poetry", "install", "--no-dev", external=True)
+    install_with_constraints(session, "xdoctest[all]")
+    session.run("python", "-m", "xdoctest", "src/hypermodern_python", *args)
