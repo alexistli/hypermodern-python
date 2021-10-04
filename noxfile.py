@@ -1,5 +1,4 @@
 """Nox sessions."""
-
 import tempfile
 from typing import Any
 
@@ -93,11 +92,6 @@ def tests(session: Session) -> None:
     install_with_constraints(
         session, "coverage[toml]", "pytest", "pytest-cov", "pytest-mock"
     )
-    import sys
-    import os
-
-    print(sys.path)
-    print(os.getcwdb())
     session.run("pytest", *args)
 
 
@@ -116,11 +110,12 @@ def xdoctest(session: Session) -> None:
     args = session.posargs or ["all"]
     session.run("poetry", "install", "--no-dev", external=True)
     install_with_constraints(session, "xdoctest[all]")
-    session.run("python", "-m", "xdoctest", "src/hypermodern_python", *args)
+    session.run("python", "-m", "xdoctest", package, *args)
 
 
 @nox.session(python="3.9")
 def docs(session: Session) -> None:
     """Build the documentation."""
-    install_with_constraints(session, "sphinx")
+    session.run("poetry", "install", "--no-dev", external=True)
+    install_with_constraints(session, "sphinx", "sphinx-autodoc-typehints")
     session.run("sphinx-build", "docs", "docs/_build")
