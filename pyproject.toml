@@ -35,6 +35,7 @@ flake8-annotations = "^2.6.2"
 flake8-docstrings = "^1.6.0"
 darglint = "^1.8.0"
 xdoctest = "^0.15.9"
+Sphinx = "^4.2.0"
 
 [tool.poetry.scripts]
 hypermodern-python = "hypermodern_python.console:main"

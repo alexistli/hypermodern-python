@@ -9,7 +9,7 @@ from nox.sessions import Session
 
 package = "hypermodern_python"
 nox.options.sessions = "lint", "safety", "mypy", "pytype", "tests"
-locations = "src", "tests", "noxfile.py"
+locations = "src", "tests", "noxfile.py", "docs/conf.py"
 
 
 def install_with_constraints(session: Session, *args: str, **kwargs: Any) -> None:
@@ -117,3 +117,10 @@ def xdoctest(session: Session) -> None:
     session.run("poetry", "install", "--no-dev", external=True)
     install_with_constraints(session, "xdoctest[all]")
     session.run("python", "-m", "xdoctest", "src/hypermodern_python", *args)
+
+
+@nox.session(python="3.9")
+def docs(session: Session) -> None:
+    """Build the documentation."""
+    install_with_constraints(session, "sphinx")
+    session.run("sphinx-build", "docs", "docs/_build")
