@@ -6,15 +6,15 @@ Reference
     :backlinks: none
 
 
-hypermodern_python.console
+hypermodern_python_alterox.console
 --------------------------
 
-.. automodule:: hypermodern_python.console
+.. automodule:: hypermodern_python_alterox.console
    :members:
 
 
-hypermodern_python.wikipedia
+hypermodern_python_alterox.wikipedia
 ----------------------------
 
-.. automodule:: hypermodern_python.wikipedia
+.. automodule:: hypermodern_python_alterox.wikipedia
    :members:

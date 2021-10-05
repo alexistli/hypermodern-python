@@ -6,7 +6,7 @@ import nox
 from nox.sessions import Session
 
 
-package = "hypermodern_python"
+package = "hypermodern_python_alterox"
 nox.options.sessions = "lint", "safety", "mypy", "pytype", "tests"
 locations = "src", "tests", "noxfile.py", "docs/conf.py"
 

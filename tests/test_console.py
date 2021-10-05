@@ -6,7 +6,7 @@ import pytest
 from pytest_mock import MockFixture
 import requests
 
-from hypermodern_python import console
+from hypermodern_python_alterox import console
 
 
 @pytest.fixture
@@ -18,7 +18,7 @@ def runner() -> CliRunner:
 @pytest.fixture
 def mock_wikipedia_random_page(mocker: MockFixture) -> Mock:
     """Fixture for mocking wikipedia.random_page."""
-    return mocker.patch("hypermodern_python.wikipedia.random_page")
+    return mocker.patch("hypermodern_python_alterox.wikipedia.random_page")
 
 
 def test_main_succeeds(runner: CliRunner, mock_requests_get: Mock) -> None:

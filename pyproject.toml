@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "hypermodern-python-alexistli"
+name = "hypermodern-python-alterox"
 version = "0.1.0"
 description = "The hypermodern Python project"
 license = "MIT"
@@ -40,14 +40,14 @@ sphinx-autodoc-typehints = "^1.12.0"
 codecov = "^2.1.12"
 
 [tool.poetry.scripts]
-hypermodern-python = "hypermodern_python.console:main"
+hypermodern-python-alterox = "hypermodern_python_alterox.console:main"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
 
 [tool.coverage.run]
 branch = true
-source = ["hypermodern_python"]
+source = ["hypermodern_python_alterox"]
 
 [tool.coverage.report]
 show_missing = true

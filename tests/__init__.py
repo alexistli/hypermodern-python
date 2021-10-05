@@ -1,1 +1,1 @@
-"""Test suite for the hypermodern_python package."""
+"""Test suite for the hypermodern_python_alterox package."""

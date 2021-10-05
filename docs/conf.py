@@ -1,5 +1,5 @@
 """Sphinx configuration."""
-project = "hypermodern-python"
+project = "hypermodern-python-alterox"
 author = "Alexis Torelli"
 copyright = f"2020, {author}"
 extensions = [
