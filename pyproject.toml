@@ -6,6 +6,7 @@ license = "MIT"
 readme = "README.md"
 homepage = "https://github.com/alexistli/hypermodern-python"
 repository = "https://github.com/alexistli/hypermodern-python"
+documentation = "https://hypermodern-python-alterox.readthedocs.io"
 keywords = ["hypermodern"]
 authors = ["alexistli <alexis.torelli.treanton@gmail.com>"]
 
